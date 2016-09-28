@@ -60,6 +60,10 @@
 #   to make gnocchi-api be a web app using apache mod_wsgi.
 #   Defaults to '$::gnocchi::params::api_service_name'
 #
+# [*manage_api_paste_ini*]
+#   (optional) Manage api-paste.ini
+#   Defaults to true
+#
 class gnocchi::api (
   $manage_service        = true,
   $enabled               = true,
@@ -74,6 +78,7 @@ class gnocchi::api (
   $workers               = $::processorcount,
   $max_limit             = 1000,
   $service_name          = $::gnocchi::params::api_service_name,
+  $manage_api_paste_ini  = true,
 ) inherits gnocchi::params {
 
   include ::gnocchi::policy
@@ -143,8 +148,10 @@ class gnocchi::api (
     gnocchi_config {
       'keystone_authtoken/identity_uri': value => $keystone_identity_uri;
     }
-    gnocchi_api_paste_ini {
-      'pipeline:main/pipeline':  value => 'gnocchi+auth',
+    if $manage_api_paste_ini {
+      gnocchi_api_paste_ini {
+        'pipeline:main/pipeline':  value => 'gnocchi+auth',
+      }
     }
   } else {
     gnocchi_config {
