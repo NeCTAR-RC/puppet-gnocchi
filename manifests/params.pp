@@ -36,7 +36,7 @@ class gnocchi::params {
       $statsd_package_name        = 'gnocchi-statsd'
       $statsd_service_name        = 'gnocchi-statsd'
       $gnocchi_wsgi_script_path   = '/usr/lib/cgi-bin/gnocchi'
-      $gnocchi_wsgi_script_source = '/usr/share/gnocchi-common/app.wsgi'
+      $gnocchi_wsgi_script_source = '/usr/share/gnocchi-common/wsgi.py'
       $pymysql_package_name       = 'python-pymysql'
       $redis_package_name         = 'python-redis'
       $cradox_package_name        = undef
