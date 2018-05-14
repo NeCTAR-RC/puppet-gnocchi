@@ -28,8 +28,8 @@ class gnocchi::params {
     }
     'Debian': {
       if $::operatingsystem == 'Ubuntu' {
-        $api_package_name           = 'python-gnocchi'
-        $gnocchi_wsgi_script_source = '/usr/bin/python2-gnocchi-api'
+        $api_package_name           = 'gnocchi-api'
+        $gnocchi_wsgi_script_source = '/usr/bin/gnocchi-api'
       } else {
         $api_package_name           = 'gnocchi-api'
         $gnocchi_wsgi_script_source = '/usr/share/gnocchi-common/app.wsgi'
@@ -37,8 +37,8 @@ class gnocchi::params {
 
       $sqlite_package_name        = 'python-pysqlite2'
       $gnocchi_wsgi_script_path   = '/usr/lib/cgi-bin/gnocchi'
-      $pymysql_package_name       = 'python-pymysql'
-      $redis_package_name         = 'python-redis'
+      $pymysql_package_name       = 'python3-pymysql'
+      $redis_package_name         = 'python3-redis'
       $cradox_package_name        = undef
     }
     default: {
