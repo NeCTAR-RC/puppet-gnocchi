@@ -29,7 +29,7 @@ class gnocchi::params {
     'Debian': {
       if $::operatingsystem == 'Ubuntu' {
         $api_package_name           = 'python-gnocchi'
-        $gnocchi_wsgi_script_source = '/usr/bin/python2-gnocchi-api'
+        $gnocchi_wsgi_script_source = '/usr/bin/gnocchi-api'
       } else {
         $api_package_name           = 'gnocchi-api'
         $gnocchi_wsgi_script_source = '/usr/share/gnocchi-common/app.wsgi'
