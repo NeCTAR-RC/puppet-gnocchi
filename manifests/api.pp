@@ -70,7 +70,6 @@ class gnocchi::api (
 ) inherits gnocchi::params {
 
   include gnocchi::deps
-  include gnocchi::policy
 
   validate_legacy(Boolean, 'validate_bool', $manage_service)
   validate_legacy(Boolean, 'validate_bool', $enabled)
