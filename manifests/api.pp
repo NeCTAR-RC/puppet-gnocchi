@@ -70,7 +70,6 @@ class gnocchi::api (
 ) inherits gnocchi::params {
 
   include gnocchi::deps
-  include gnocchi::policy
 
   package { 'gnocchi-api':
     ensure => $package_ensure,
