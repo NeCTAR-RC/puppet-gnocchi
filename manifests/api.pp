@@ -78,7 +78,6 @@ class gnocchi::api (
 ) inherits gnocchi::params {
 
   include gnocchi::deps
-  include gnocchi::policy
 
   if $middlewares != undef {
     warning('The gnocchi::api::middleware parameter is deprecated and has no effect')
