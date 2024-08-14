@@ -129,11 +129,11 @@ standalone service, or httpd for being run by a httpd server")
     'api/auth_mode':                    value => $auth_strategy;
     'api/paste_config':                 value => $paste_config;
     'api/operation_timeout':            value => $operation_timeout;
-    'api/enable_proxy_headers_parsing': value => $enable_proxy_headers_parsing;
   }
 
   oslo::middleware { 'gnocchi_config':
-    max_request_body_size => $max_request_body_size,
+    max_request_body_size        => $max_request_body_size,
+    enable_proxy_headers_parsing => $enable_proxy_headers_parsing,
   }
 
   if $auth_strategy == 'keystone' {
